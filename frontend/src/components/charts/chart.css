@@ -1,0 +1,94 @@
+.chart-container {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.chart-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.chart-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f8f9fa;
+}
+
+.chart-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  position: relative;
+}
+
+.chart-wrapper .recharts-legend-wrapper {
+  padding-top: 20px;
+}
+
+.chart-wrapper .recharts-legend-item {
+  margin-right: 15px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.chart-wrapper .recharts-tooltip-wrapper {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border: none;
+}
+
+.chart-wrapper .recharts-default-tooltip {
+  background: white;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 12px;
+}
+
+.chart-wrapper .recharts-tooltip-label {
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.chart-wrapper .recharts-tooltip-item {
+  color: #495057;
+  font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .chart-container {
+    padding: 20px;
+  }
+  
+  .chart-title {
+    font-size: 16px;
+  }
+  
+  .chart-wrapper {
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chart-container {
+    padding: 15px;
+  }
+  
+  .chart-title {
+    font-size: 14px;
+  }
+  
+  .chart-wrapper {
+    min-height: 200px;
+  }
+}
