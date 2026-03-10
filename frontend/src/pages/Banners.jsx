@@ -24,7 +24,8 @@ const Banners = () => {
 
   const loadBanners = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/banners/ads');
+      const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+      const response = await fetch(`${API_URL}/banners/ads`);
       if (response.ok) {
         const data = await response.json();
         setBanners(data);
@@ -64,7 +65,8 @@ const Banners = () => {
 
     try {
       // Step 1: Get pre-signed URL from backend
-      const response = await fetch('http://localhost:5000/api/banners/generate-upload-url', {
+      const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+      const response = await fetch(`${API_URL}/banners/generate-upload-url`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -87,7 +89,7 @@ const Banners = () => {
       if (!uploadResponse.ok) throw new Error('Failed to upload image');
 
       // Step 3: Save to DynamoDB
-      const dbResponse = await fetch('http://localhost:5000/api/banners/upload-complete', {
+      const dbResponse = await fetch(`${API_URL}/banners/upload-complete`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -139,7 +141,8 @@ const Banners = () => {
       const fileName = banner.imageUrl.split('.com/')[1];
       
       // Delete from S3 and DynamoDB
-      await fetch('http://localhost:5000/api/banners/delete', {
+      const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+      await fetch(`${API_URL}/banners/delete`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 

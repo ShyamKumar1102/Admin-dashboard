@@ -20,7 +20,6 @@ if errorlevel 1 (
 )
 
 echo ✅ Code pushed to GitHub
-
 REM Deploy on EC2
 echo.
 echo [2/3] Deploying on EC2...

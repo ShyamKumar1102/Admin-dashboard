@@ -54,9 +54,10 @@ const Subscriptions = () => {
   const loadData = async () => {
     try {
       setLoading(true);
+      const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
       const [subscriptionsData, plansData, customersData] = await Promise.all([
         dbService.getAllSubscriptions(),
-        fetch('http://localhost:5000/api/subscription-plans')
+        fetch(`${API_URL}/subscription-plans`)
           .then(r => r.json())
           .then(data => data.data || data)
           .catch(() => []),
