@@ -24,7 +24,7 @@ echo ✅ Code pushed to GitHub
 REM Deploy on EC2
 echo.
 echo [2/3] Deploying on EC2...
-ssh -i "C:\Users\shyam11\Downloads\Mee.pem" ubuntu@13.51.178.89 "cd ~/Admin-dashboard && bash deploy.sh"
+ssh -i "C:\Users\shyam11\Downloads\Mee.pem" ubuntu@13.51.178.89 "cd ~/Admin-dashboard && bash deploy.sh && cd ~/Admin-dashboard/frontend && npm run build"
 
 if errorlevel 1 (
     echo ❌ EC2 deployment failed!
