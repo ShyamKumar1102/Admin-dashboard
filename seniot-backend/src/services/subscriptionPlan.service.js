@@ -3,26 +3,26 @@ const { syncInvoiceStatus } = require('./invoice-sync.service');
 
 class SubscriptionPlanService extends BaseService {
   constructor() {
-    super('subscription_plans', 'subscriptionPlans');
+    super('Seniot-subscription', 'subscriptionPlans');
   }
 
-  async getById(deviceId) {
-    return await super.getById(deviceId, 'deviceId');
+  async getById(subscriptionid) {
+    return await super.getById(subscriptionid, 'subscriptionid');
   }
 
-  async update(deviceId, data) {
-    const result = await super.update(deviceId, data, 'deviceId');
+  async update(subscriptionid, data) {
+    const result = await super.update(subscriptionid, data, 'subscriptionid');
     
     // Sync invoice status when plan status changes
     if (data.status) {
-      await syncInvoiceStatus(deviceId, data.status);
+      await syncInvoiceStatus(subscriptionid, data.status);
     }
     
     return result;
   }
 
-  async delete(deviceId) {
-    return await super.delete(deviceId, 'deviceId');
+  async delete(subscriptionid) {
+    return await super.delete(subscriptionid, 'subscriptionid');
   }
 
   async getAll() {
